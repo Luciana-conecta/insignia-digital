@@ -42,29 +42,13 @@ const Home: React.FC = () => {
       url: "../portfolio/plaza.jpg",
       span: "md:col-span-2 md:row-span-2 col-span-1 row-span-2",
     },
-    {
-      id: 5,
-      type: "video",
-      title: "AI Automation",
-      desc: "Procesos inteligentes locales.",
-      url: "/assets/portfolio/ai-demo.mp4",
-      span: "md:col-span-1 md:row-span-3 col-span-1 row-span-2",
-    },
-    {
-      id: 6,
-      type: "image",
-      title: "Brand Identity",
-      desc: "Branding visual local.",
-      url: "/assets/portfolio/branding.jpg",
-      span: "md:col-span-2 md:row-span-2 col-span-1 row-span-2",
-    },
   ];
 
   return (
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center bg-primary overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop")' }}
         ></div>
@@ -94,24 +78,24 @@ const Home: React.FC = () => {
       </section>
 
       {/* Partners */}
-        <section className="py-20 bg-white border-b border-gray-100 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4">
-            <p className="text-center text-[10px] font-black text-gray-400 uppercase tracking-[0.4em] mb-4">
-              Empresas que confían en nosotros
-            </p>
-            
-            <Marquee speed={50} pauseOnHover gradient={false} className="py-8">
-              <img src="/clientes/CIEESI.png" alt="CIEES" className=" h-[180px] w-[180px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
-              <img src="/clientes/DENDE.png" alt="DENDE" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
-              <img src="/clientes/PLAZAPUBLICA.png" alt="Plaza" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
-              <img src="/clientes/FAF.png" alt="FAF" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
-              <img src="/clientes/Horizonte.png" alt="Horizonte" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
-              <img src="/clientes/MAEUC.png" alt="MAEUC" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
-              <img src="/clientes/NETBOX.png" alt="NETBOX" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
-              <img src="/clientes/TigoConecta.png" alt="Tigo" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
-            </Marquee>
-          </div>
-        </section>
+      <section className="py-20 bg-white border-b border-gray-100 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4">
+          <p className="text-center text-[10px] font-black text-gray-400 uppercase tracking-[0.4em] mb-4">
+            Empresas que confían en nosotros
+          </p>
+
+          <Marquee speed={50} pauseOnHover gradient={false} className="py-8">
+            <img src="/clientes/CIEESI.png" alt="CIEES" className=" h-[180px] w-[180px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
+            <img src="/clientes/DENDE.png" alt="DENDE" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
+            <img src="/clientes/PLAZAPUBLICA.png" alt="Plaza" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
+            <img src="/clientes/FAF.png" alt="FAF" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
+            <img src="/clientes/Horizonte.png" alt="Horizonte" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
+            <img src="/clientes/MAEUC.png" alt="MAEUC" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
+            <img src="/clientes/NETBOX.png" alt="NETBOX" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
+            <img src="/clientes/TigoConecta.png" alt="Tigo" className="h-[120px] w-auto object-contain grayscale hover:grayscale-0 mx-12" />
+          </Marquee>
+        </div>
+      </section>
       {/* Value Proposition */}
       <section className="py-24 bg-surface pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -150,7 +134,7 @@ const Home: React.FC = () => {
 
       {/* Portfolio Gallery */}
       <section className="py-12 bg-surface">
-        <InteractiveBentoGallery 
+        <InteractiveBentoGallery
           mediaItems={portfolioMedia}
           title="Nuestro Portafolio Local"
           description="Explora una selección de proyectos reales desarrollados por nuestro equipo bajo el estándar Insignia."
@@ -166,7 +150,7 @@ const Home: React.FC = () => {
           </Link>
           <p className="text-blue-200/50 mt-8 text-sm font-medium">Llevemos tus ideas al siguiente nivel tecnológico.</p>
         </div>
-        
+
         {/* Adorno visual extra para el final del contenido principal */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-accent/30 rounded-full"></div>
       </section>
