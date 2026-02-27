@@ -10,6 +10,8 @@ const Conecta: React.FC = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -18,12 +20,38 @@ const Conecta: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Demo solicitada y enviada a hola@insignia.com.py:', formState);
-    setIsSubmitted(true);
-    // En una integración real, aquí se enviaría a un endpoint de API
-    setTimeout(() => setIsSubmitted(false), 15000);
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '5a5971c7-7e06-4d31-9ada-7962c71cac63',
+          subject: `Nueva solicitud de demo - ${formState.name} (${formState.company})`,
+          from_name: 'Insignia Web',
+          name: formState.name,
+          email: formState.email,
+          company: formState.company,
+          whatsapp: formState.whatsapp,
+          interest: formState.interest,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setIsSubmitted(true);
+      } else {
+        setError('Hubo un problema al enviar. Intentá de nuevo.');
+      }
+    } catch {
+      setError('Error de conexión. Intentá de nuevo.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const scrollToDemo = () => {
@@ -408,11 +436,15 @@ const Conecta: React.FC = () => {
                       <option>Otro</option>
                     </select>
                   </div>
-                  <button 
-                    type="submit" 
-                    className="w-full bg-primary hover:bg-secondary text-white font-extrabold py-5 rounded-xl transition-all shadow-lg text-lg transform hover:-translate-y-1"
+                  {error && (
+                    <p className="text-red-500 text-sm text-center">{error}</p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-primary hover:bg-secondary text-white font-extrabold py-5 rounded-xl transition-all shadow-lg text-lg transform hover:-translate-y-1 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
                   >
-                    Solicitar demo
+                    {isLoading ? 'Enviando...' : 'Solicitar demo'}
                   </button>
                   <p className="text-[11px] text-gray-400 text-center">Al enviar aceptás ser contactado por Insignia Digital. Respetamos tu privacidad.</p>
                 </form>

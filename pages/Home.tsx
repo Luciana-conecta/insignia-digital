@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       type: "image",
       title: "DENDE",
       desc: "Diseño local de alta fidelidad.",
-      url: "../portfolio/dendeUni.jpg",
+      url: "/portfolio/dendeUni.jpg",
       span: "md:col-span-1 md:row-span-3 col-span-1 row-span-2",
     },
     {
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
       type: "image",
       title: "Dende Empresarial",
       desc: "Arquitectura escalable en acción.",
-      url: "../portfolio/dende.jpg",
+      url: "/portfolio/dende.jpg",
       span: "md:col-span-2 md:row-span-2 col-span-1 row-span-2",
     },
     {
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
       type: "image",
       title: "Netbox",
       desc: "Planificación de negocio.",
-      url: "../portfolio/Netbox.jpg",
+      url: "/portfolio/Netbox.jpg",
       span: "md:col-span-1 md:row-span-3 col-span-1 row-span-2",
     },
     {
@@ -39,7 +39,7 @@ const Home: React.FC = () => {
       type: "image",
       title: "Plaza Pública",
       desc: "Experiencia móvil nativa.",
-      url: "../portfolio/plaza.jpg",
+      url: "/portfolio/plaza.jpg",
       span: "md:col-span-2 md:row-span-2 col-span-1 row-span-2",
     },
   ];
